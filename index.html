@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma de Experimentos Digitais em Psicologia</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+    <!-- CABEÇALHO DA PLATAFORMA -->
+    <header class="site-header">
+        <div class="container header-grid">
+            <div class="header-logo">
+                <img src="Imagens/logo_uemg.png" alt="Logo UEMG - Universidade do Estado de Minas Gerais" class="logo-universidade" />
+            </div>
+            <section class="hero-section">
+                <h1>Plataforma de Experimentos Digitais em Psicologia</h1>
+                <p class="hero-description">Ambiente de aprendizagem, investigação e análise de experimentos digitais em Psicologia</p>
+
+                <!-- MENU HORIZONTAL DO CABEÇALHO -->
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="#" id="nav-inicio">Página Inicial</a></li>
+                        <li><a href="#container-experimento" id="nav-equipe">Equipe de Projeto</a></li>
+                        <li><a href="#" id="nav-forum" onclick="event.preventDefault(); alert('O Fórum Interativo está em fase de estruturação e será liberado em breve!');">Fórum Interativo</a></li>
+                        <li><a href="#container-experimento" id="nav-contato">Contato & Suporte</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=H-7FsUDOrvE" target="_blank" id="nav-youtube">Canal no YouTube</a></li>
+                        <li><a href="#container-experimento" id="nav-guia-tecnico">Guia Técnico de Utilização</a></li>
+                        <li><a href="#gatilho-colecao" id="nav-colecao">Coleção de Experimentos</a></li>
+                        <li><a href="#ferramentas" id="nav-ferramentas">Ferramentas de Análise & Pesquisa</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <div class="header-logo-right">
+                <img src="Imagens/Logo LAPICOG 2.png" alt="Logo LAPICOG - Laboratório de Psicometria e Intervenções Cognitivas" class="logo-universidade" />
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main id="conteudo-principal">
+        <div class="container" id="secao-apresentacao">
+            
+            <!-- APRESENTAÇÃO -->
+            <section id="sobre" class="presentation-section">
+                <h2 class="section-title">Apresentação</h2>
+                <p>Explore nossa coleção de experimentos digitais, ambientes de interação e materiais de apoio voltados para a experimentação em Psicologia</p>
+            </section>
+
+            <!-- PAINEL INSTITUCIONAL -->
+            <section class="painel-institucional">
+                <a href="#container-experimento" class="card-institucional" id="link-equipe">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Equipe de Projeto</h3>
+                        <p>Conheça os coordenadores, pesquisadores e extensionistas responsáveis pela plataforma.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="card-institucional" id="link-forum" onclick="event.preventDefault(); alert('O Fórum Interativo está em fase de estruturação e será liberado em breve!');">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Fórum Interativo</h3>
+                        <p>Participe de discussões, debata os resultados dos testes e colabore com a comunidade (Breve).</p>
+                    </div>
+                </a>
+
+                <a href="#container-experimento" class="card-institucional" id="link-contato">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Contato & Suporte</h3>
+                        <p>Canal direto para dúvidas, sugestões e suporte técnico.</p>
+                    </div>
+                </a>
+            </section>
+
+            <!-- YOUTUBE DESTAQUE -->
+            <section id="destaque-youtube" class="youtube-highlight-section">
+                <div class="youtube-grid">
+                    <div class="youtube-info">
+                        <h2 class="section-title">Nosso Canal no YouTube</h2>
+                        <p>Acompanhe as produções audiovisuais da nossa equipe. Disponibilizamos conteúdos voltados à aprendizagem e investigação científica relacionados à experimentação em Psicologia, incluindo tutoriais para a utilização das ferramentas, aplicação de experimentos e análise de dados estatísticos, trabalhos em andamento e outros assuntos de interesse.</p>
+                        <a href="https://www.youtube.com/watch?v=H-7FsUDOrvE" target="_blank" class="main-youtube-link">Visitar Canal Oficial →</a>
+                    </div>
+                    <div class="youtube-video-side">
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/H-7FsUDOrvE" 
+                                title="Matéria Institucional UEMG - Destaque do Canal" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CAIXAS DE SELEÇÃO PRINCIPAIS -->
+            <section class="secao-selecao-principal">
+                <div class="grade-selecao">
+                    <!-- Caixa 1: Guia Técnico de Utilização -->
+                    <div class="card-selecao-trigger" id="link-guia-tecnico">
+                        <div class="card-selecao-conteudo">
+                            <h2 class="section-title">Guia Técnico de Utilização</h2>
+                            <p>Clique aqui para acessar o Guita Técnico em PDF, com orientações de uso e aplicação.</p>
+                            <span class="seta-indicadora">→</span>
+                        </div>
+                    </div>
+
+                    <!-- Caixa 2: Coleção de Experimentos -->
+                    <div class="card-selecao-trigger" id="gatilho-colecao">
+                        <div class="card-selecao-conteudo">
+                            <h2 class="section-title">Coleção de Experimentos</h2>
+                            <p>Passe o mouse para explorar nossa coleção de experimentos digitais em Psicologia.</p>
+                            <span class="seta-indicadora">↓</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLEÇÃO DE EXPERIMENTOS RETRÁTIL -->
+            <div class="conteudo-colecao-retratil">
+                <section class="features-section">
+                    
+                    <article data-experimento="labirinto">
+                        <h3>Labirinto escuro</h3>
+                        <p>Quando o conhecimento preciso sobre a meta pode dificultar a tentativa de alcançá-la.</p>
+                        <span class="badge">Resolução de Problemas</span>
+                    </article>
+
+                    <article data-experimento="stroop">
+                        <h3>Efeito Stroop</h3>
+                        <p>Explora a interferência cognitiva e o controle inibitório.</p>
+                        <span class="badge">Funções Executivas</span>
+                    </article>
+
+                    <article data-experimento="brilho">
+                        <h3>Limiar de detecção de brilho</h3>
+                        <p>Ilustra procedimentos para estimação da intensidade mínima detectável e a respectiva curva psicométrica.</p>
+                        <span class="badge">Psicofísica</span>
+                    </article>
+
+                    <article data-experimento="priming-semantico">
+                        <h3>Facilitação semântica</h3>
+                        <p>Emprega uma tarefa de decisão lexical para investigar a memória associativa para palavras.</p>
+                        <span class="badge">Linguagem e Memória</span>
+                    </article>
+
+                    <article data-experimento="percepcao-categorica">
+                        <h3>Percepção categórica</h3>
+                        <p>Investiga o efeito das categorias fonéticas sobre a percepção de sons da fala.</p>
+                        <span class="badge">Percepção e Linguagem</span>
+                    </article>
+
+                    <article data-experimento="fonemas">
+                        <h3>Detecção de fonemas</h3>
+                        <p>Explora a influência do conhecimento das palavras sobre a percepção de sons da fala.</p>
+                        <span class="badge">Percepção e Linguagem</span>
+                    </article>
+
+                    <article data-experimento="imagens-mentais">
+                        <h3>Rotação mental</h3>
+                        <p>Estudo sobre a manipulação mental de objetos visuais que impactou o entendimento sobre as representações mentais.</p>
+                        <span class="badge">Representações Mentais</span>
+                    </article>
+
+                    <article data-experimento="posner">
+                        <h3>Paradigma das pistas de Posner</h3>
+                        <p>Investiga a orientação da atenção baseada em pistas visuais.</p>
+                        <span class="badge">Atenção</span>
+                    </article>
+
+                    <article data-experimento="stroop-emocional">
+                        <h3>Efeito stroop emocional</h3>
+                        <p>Explora a captura da atenção por conteúdos emocionais de palavras.</p>
+                        <span class="badge">Emoção e Atenção</span>
+                    </article>
+
+                    <article data-experimento="dot-probe">
+                        <h3>Tarefa "dot-probe"</h3>
+                        <p>Explora a captura da atenção por estímulos com alta valência emocional.</p>
+                        <span class="badge">Emoção e Atenção</span>
+                    </article>
+
+                    <article data-experimento="sperling">
+                        <h3>Tarefa de Sperling</h3>
+                        <p>Investiga a capacidade e a duração do registro na memória icônica.</p>
+                        <span class="badge">Memória Sensorial (icônica)</span>
+                    </article>
+
+                    <article data-experimento="drm">
+                        <h3>Paradigma DRM</h3>
+                        <p>Estuda a criação de falsas memórias por meio de listas de palavras associadas.</p>
+                        <span class="badge">Memória</span>
+                    </article>
+
+                    <article data-experimento="priming-mascara">
+                        <h3>Facilitação semântica com máscara</h3>
+                        <p>Usa estímulos facilitadores subliminares para explorar o processamento lexical inconsciente.</p>
+                        <span class="badge">Processamento Subliminar</span>
+                    </article>
+
+                    <article data-experimento="mcgurk">
+                        <h3>Efeito McGurk</h3>
+                        <p>Demonstra como a visão e a audição se fundem percepção da fala.</p>
+                        <span class="badge">Integração Multissensorial</span>
+                    </article>
+
+                    <article data-experimento="leitura-autocadenciada">
+                        <h3>Sentenças em labirinto</h3>
+                        <p>Emprega uma tarefa de leitura autocadenciada para investigar o processamento sintático.</p>
+                        <span class="badge">Psicolinguística e Processamento Sintático</span>
+                    </article>
+                </section>
+            </div>
+
+            <!-- FERRAMENTAS DE ANÁLISE -->
+            <section id="ferramentas" class="tools-section">
+                <h2 class="section-title">Ferramentas de Análise & Pesquisa</h2>
+                <div class="tools-grid">
+                    
+                    <div class="card-ferramenta">
+                        <div class="tool-header">
+                            <span class="tool-tag">Execução</span>
+                            <h3>PsyToolkit</h3>
+                        </div>
+                        <p>Software de livre acesso, voltado para a programação e execução de experimentos em Psicologia e questionários online.</p>
+                        <a href="https://www.psytoolkit.org/" target="_blank" class="tool-link">Acessar PsyToolkit →</a>
+                    </div>
+
+                    <div class="card-ferramenta">
+                        <div class="tool-header">
+                            <span class="tool-tag">Estatística</span>
+                            <h3>Linguagem R</h3>
+                        </div>
+                        <p>Ambiente computacional e linguagem de programação de código aberto voltada para a manipulação e visualização de dados estatísticos.</p>
+                        <a href="https://www.r-project.org/" target="_blank" class="tool-link">Acessar Projeto R →</a>
+                    </div>
+
+                    <div class="card-ferramenta">
+                        <div class="tool-header">
+                            <span class="tool-tag">Estatística</span>
+                            <h3>JASP</h3>
+                        </div>
+                        <p>Software gratuito para manipulação e visualização de dados estatísticos. Oferece uma interface gráfica amigável para análises estatísticas clássicas e bayesianas.</p>
+                        <a href="https://jasp-stats.org/" target="_blank" class="tool-link">Acessar JASP →</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CONTAINER PARA CONTEÚDO DINÂMICO (INJETADO VIA SCRIPT) -->
+            <div id="container-experimento" style="display: none;"></div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ INSTITUCIONAL -->
+    <footer class="site-footer">
+        <div class="container" style="padding: 0;">
+            <div class="rodape-apoio">
+                <span>Apoio:</span>
+                <img src="Imagens/logo.uemg2.jpg" alt="Logo UEMG" class="logo-apoio" />
+                <img src="Imagens/cnpq.logo.jpg" alt="Logo CNPq" class="logo-apoio" />
+                <img src="Imagens/fapemig.logo.jpg" alt="Logo FAPEMIG" class="logo-apoio" />
+            </div>
+            <p>© Grupo de Pesquisa e Extensão em Psicologia Experimental e Cognitiva. Todos os direitos reservados.</p>
+            <p>Universidade do Estado de Minas Gerais</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
