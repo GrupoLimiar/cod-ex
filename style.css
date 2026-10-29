@@ -816,3 +816,91 @@ body {
         display: none; /* Oculta as bolinhas no celular para um ajuste limpo */
     }
 }
+
+/* ==========================================================================
+   Eventos e Produções — banners institucionais em colunas
+   ========================================================================== */
+.eventos-producoes-section {
+    background-color: #F1F4F8;
+    border-left: 4px solid var(--primary-color);
+    padding: 40px;
+    margin: 0 0 50px 0;
+    min-width: 0;
+}
+
+.eventos-producoes-section > .section-title {
+    margin-top: 0;
+    margin-bottom: 28px;
+}
+
+.eventos-producoes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+    min-width: 0;
+}
+
+.evento-card {
+    min-width: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.evento-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.evento-banner-link {
+    display: block;
+    width: 100%;
+    line-height: 0;
+    outline-offset: 4px;
+}
+
+.evento-banner-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.evento-banner-link:focus-visible {
+    outline: 2px solid var(--accent-color);
+}
+
+@media (max-width: 900px) {
+    .eventos-producoes-section {
+        padding: 30px;
+    }
+
+    .eventos-producoes-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .eventos-producoes-section {
+        padding: 24px 18px 26px;
+        margin-bottom: 30px;
+    }
+
+    .eventos-producoes-section > .section-title {
+        margin-bottom: 20px;
+    }
+
+    .eventos-producoes-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .evento-card {
+        transition: none;
+    }
+}

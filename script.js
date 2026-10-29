@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Registra as vistas internas no histórico para habilitar Voltar/Avançar do navegador.
+    let restaurandoHistorico = false;
+    if (!history.state || !history.state.vista) history.replaceState({ vista: 'inicio' }, '', location.href);
+    function registrarVista(vista, dados = {}) {
+        if (restaurandoHistorico) return;
+        const atual = history.state || {};
+        const mesmoEstado = atual.vista === vista && Object.keys(dados).every((chave) => atual[chave] === dados[chave]);
+        if (!mesmoEstado) history.pushState({ vista, ...dados }, '', location.href);
+    }
+    function voltarAoInicio() {
+        registrarVista('inicio');
+        voltarParaLista();
+    }
     
     // Banco de dados dinâmico para os experimentos ativos
     const conteudosExperimentos = {
@@ -16,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const secaoApresentacao = document.getElementById('sobre');
     const painelInstitucional = document.querySelector('.painel-institucional');
     const destaqueYoutube = document.getElementById('destaque-youtube');
+    const secaoEventosProducoes = document.getElementById('eventos-producoes');
     const secaoSelecao = document.querySelector('.secao-selecao-principal');
     const conteudoColecao = document.querySelector('.conteudo-colecao-retratil');
     const secaoFerramentas = document.getElementById('ferramentas');
@@ -40,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (secaoApresentacao) secaoApresentacao.style.display = 'none';
         if (painelInstitucional) painelInstitucional.style.display = 'none';
         if (destaqueYoutube) destaqueYoutube.style.display = 'none';
+        if (secaoEventosProducoes) secaoEventosProducoes.style.display = 'none';
         if (secaoSelecao) secaoSelecao.style.display = 'none';
         if (secaoFerramentas) secaoFerramentas.style.display = 'none';
     }
@@ -54,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (secaoApresentacao) secaoApresentacao.style.display = 'block';
         if (painelInstitucional) painelInstitucional.style.display = 'grid';
         if (destaqueYoutube) destaqueYoutube.style.display = 'block';
+        if (secaoEventosProducoes) secaoEventosProducoes.style.display = 'block';
         if (secaoSelecao) secaoSelecao.style.display = 'block';
         if (secaoFerramentas) secaoFerramentas.style.display = 'block';
 
@@ -62,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função auxiliar para exibir a Equipe de Projeto
     function abrirEquipe() {
+        registrarVista('equipe');
         ocultarInicio();
 
         containerExperimento.innerHTML = `
@@ -145,16 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('btn-voltar-equipe-topo').addEventListener('click', (evt) => {
             evt.preventDefault();
-            voltarParaLista();
+            voltarAoInicio();
         });
         document.getElementById('btn-voltar-equipe-rodape').addEventListener('click', (evt) => {
             evt.preventDefault();
-            voltarParaLista();
+            voltarAoInicio();
         });
     }
 
     // Função auxiliar para exibir Contato e Suporte
     function abrirContato() {
+        registrarVista('contato');
         ocultarInicio();
 
         containerExperimento.innerHTML = `
@@ -270,16 +288,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('btn-voltar-contato-topo').addEventListener('click', (evt) => {
             evt.preventDefault();
-            voltarParaLista();
+            voltarAoInicio();
         });
         document.getElementById('btn-voltar-contato-rodape').addEventListener('click', (evt) => {
             evt.preventDefault();
-            voltarParaLista();
+            voltarAoInicio();
         });
     }
 
     // Função auxiliar para exibir o Guia Técnico
     function abrirGuiaTecnico() {
+        registrarVista('guia');
         ocultarInicio();
 
         containerExperimento.innerHTML = `
@@ -317,16 +336,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('btn-voltar-guia-topo').addEventListener('click', (evt) => {
             evt.preventDefault();
-            voltarParaLista();
+            voltarAoInicio();
         });
         document.getElementById('btn-voltar-guia-rodape').addEventListener('click', (evt) => {
             evt.preventDefault();
-            voltarParaLista();
+            voltarAoInicio();
         });
     }
 
     // EVENTOS DE CLIQUE NA PÁGINA E NO MENU
-    if (navInicio) navInicio.addEventListener('click', (e) => { e.preventDefault(); voltarParaLista(); });
+    if (navInicio) navInicio.addEventListener('click', (e) => { e.preventDefault(); voltarAoInicio(); });
 
     if (linkEquipe) linkEquipe.addEventListener('click', (e) => { e.preventDefault(); abrirEquipe(); });
     if (navEquipe) navEquipe.addEventListener('click', (e) => { e.preventDefault(); abrirEquipe(); });
@@ -341,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navColecao) {
         navColecao.addEventListener('click', (e) => {
             e.preventDefault();
+            registrarVista('colecao');
             voltarParaLista();
             if (conteudoColecao) conteudoColecao.classList.add('ativa');
             const gatilho = document.getElementById('gatilho-colecao');
@@ -354,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navFerramentas) {
         navFerramentas.addEventListener('click', (e) => {
             e.preventDefault();
+            registrarVista('ferramentas');
             voltarParaLista();
             if (secaoFerramentas) {
                 secaoFerramentas.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -375,6 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return response.text();
                 })
                 .then(htmlConteudo => {
+                    registrarVista('experimento', { idExperimento });
                     ocultarInicio();
 
                     containerExperimento.innerHTML = `
@@ -420,4 +442,31 @@ document.addEventListener('DOMContentLoaded', () => {
             conteudoColecao.classList.add('ativa');
         });
     }
+
+
+
+    // Reconstitui a tela ao usar os controles Voltar/Avançar do navegador.
+    window.addEventListener('popstate', (event) => {
+        const estado = event.state || { vista: 'inicio' };
+        restaurandoHistorico = true;
+        try {
+            if (estado.vista === 'equipe') abrirEquipe();
+            else if (estado.vista === 'contato') abrirContato();
+            else if (estado.vista === 'guia') abrirGuiaTecnico();
+            else if (estado.vista === 'experimento' && estado.idExperimento) {
+                const artigo = document.querySelector(`.features-section article[data-experimento="${estado.idExperimento}"]`);
+                if (artigo) artigo.click();
+            } else {
+                voltarParaLista();
+                if (estado.vista === 'colecao') {
+                    if (conteudoColecao) conteudoColecao.classList.add('ativa');
+                    const gatilho = document.getElementById('gatilho-colecao');
+                    if (gatilho) gatilho.scrollIntoView({ behavior: 'auto', block: 'start' });
+                } else if (estado.vista === 'ferramentas' && secaoFerramentas) {
+                    secaoFerramentas.scrollIntoView({ behavior: 'auto', block: 'start' });
+                }
+            }
+        } finally { restaurandoHistorico = false; }
+    });
+
 });
